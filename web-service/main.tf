@@ -120,11 +120,6 @@ variable "cpu" {
   default     = 512
 }
 
-variable "working_directory" {
-  description = "The working directory of the container process."
-  default     = "/"
-}
-
 variable "deployment_minimum_healthy_percent" {
   description = "lower limit (% of desired_count) of # of running tasks during a deployment"
   default     = 100
@@ -173,7 +168,6 @@ module "task" {
   env_vars          = "${var.env_vars}"
   memory            = "${var.memory}"
   cpu               = "${var.cpu}"
-  working_directory = "${var.working_directory}"
 
   ports = <<EOF
   [
